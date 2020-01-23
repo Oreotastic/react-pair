@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import "./App.css";
 function App() {
+  let rv, gv, bv;
+  const handleInputs = e => {
+    console.dir(e.target.id);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="redSlide">
+        <input
+          onChange={handleInputs}
+          id="redRange"
+          type="range"
+          min="0"
+          max="255"
+        ></input>
+      </div>
+      <div className="redSlide">
+        <input
+          onChange={handleInputs}
+          id="blueRange"
+          type="range"
+          min="0"
+          max="255"
+        ></input>
+      </div>
+      <div className="redSlide">
+        <input
+          onChange={handleInputs}
+          id="greenRange"
+          type="range"
+          min="0"
+          max="255"
+        ></input>
+      </div>
+      <div className="colorSample"></div>
     </div>
   );
 }
-
 export default App;

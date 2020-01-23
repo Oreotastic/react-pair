@@ -1,10 +1,31 @@
 import React from "react";
 import "./App.css";
 function App() {
-  let rv, gv, bv;
-  const handleInputs = e => {
-    console.dir(e.target.id);
+  // let style = {
+  //   backgroundColor: undefined
+  // };
+
+  let colorArray = {
+    redValue: 0,
+    blueValue: 0,
+    greenValue: 0
   };
+  const handleInputs = e => {
+    if (e.target.id == "redRange") {
+      colorArray.redValue = Number(e.target.value);
+    } else if (e.target.id == "blueRange") {
+      colorArray.blueValue = Number(e.target.value);
+    } else {
+      colorArray.greenValue = Number(e.target.value);
+    }
+
+    console.dir(colorArray);
+    // style.backgroundColor = `rgb(${colorArray.redValue},
+    // ${colorArray.greenValue},
+    // ${colorArray.redValue})`;
+    // console.log(style);
+  };
+
   return (
     <div className="App">
       <div className="redSlide">
@@ -34,7 +55,12 @@ function App() {
           max="255"
         ></input>
       </div>
-      <div className="colorSample"></div>
+      <div
+        style={{
+          backgroundColor: `rgb(${colorArray.redValue},${colorArray.greenValue},${colorArray.blueValue})`
+        }}
+        className="colorSample"
+      ></div>
     </div>
   );
 }

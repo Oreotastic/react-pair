@@ -1,29 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
+
 function App() {
-  // let style = {
-  //   backgroundColor: undefined
-  // };
 
-  let colorArray = {
-    redValue: 0,
-    blueValue: 0,
-    greenValue: 0
-  };
+  let [colorValues, setValues] = useState({
+      redValue: 0,
+      blueValue: 0,
+      greenValue: 0
+  }) 
+
   const handleInputs = e => {
-    if (e.target.id == "redRange") {
-      colorArray.redValue = Number(e.target.value);
-    } else if (e.target.id == "blueRange") {
-      colorArray.blueValue = Number(e.target.value);
-    } else {
-      colorArray.greenValue = Number(e.target.value);
-    }
 
-    console.dir(colorArray);
-    // style.backgroundColor = `rgb(${colorArray.redValue},
-    // ${colorArray.greenValue},
-    // ${colorArray.redValue})`;
-    // console.log(style);
+    if (e.target.id == "redRange") {
+      setValues({...colorValues,redValue:e.target.value})
+    } else if (e.target.id == "blueRange") {
+      setValues({...colorValues,blueValue:e.target.value})
+    } else {
+      setValues({...colorValues,greenValue:e.target.value})
+    }
   };
 
   return (
@@ -57,7 +51,7 @@ function App() {
       </div>
       <div
         style={{
-          backgroundColor: `rgb(${colorArray.redValue},${colorArray.greenValue},${colorArray.blueValue})`
+          backgroundColor: `rgb(${colorValues.redValue},${colorValues.greenValue},${colorValues.blueValue})`
         }}
         className="colorSample"
       ></div>
